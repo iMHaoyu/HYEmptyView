@@ -13,6 +13,10 @@
 		D216FE5020493098000BB1D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D216FE4F20493098000BB1D5 /* Assets.xcassets */; };
 		D216FE5320493098000BB1D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D216FE5120493098000BB1D5 /* LaunchScreen.storyboard */; };
 		D216FE5620493098000BB1D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D216FE5520493098000BB1D5 /* main.m */; };
+		D216FE5F2049339A000BB1D5 /* UIScrollView+HYEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = D216FE5E2049339A000BB1D5 /* UIScrollView+HYEmpty.m */; };
+		D216FE62204948E4000BB1D5 /* HYEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = D216FE61204948E4000BB1D5 /* HYEmptyView.m */; };
+		D292523B21AD362B00DF29C7 /* UIColor+HYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D292523721AD362B00DF29C7 /* UIColor+HYCategory.m */; };
+		D292523C21AD362B00DF29C7 /* UIView+HYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D292523821AD362B00DF29C7 /* UIView+HYCategory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,14 @@
 		D216FE5220493098000BB1D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D216FE5420493098000BB1D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D216FE5520493098000BB1D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D216FE5D2049339A000BB1D5 /* UIScrollView+HYEmpty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+HYEmpty.h"; sourceTree = "<group>"; };
+		D216FE5E2049339A000BB1D5 /* UIScrollView+HYEmpty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+HYEmpty.m"; sourceTree = "<group>"; };
+		D216FE60204948E4000BB1D5 /* HYEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYEmptyView.h; sourceTree = "<group>"; };
+		D216FE61204948E4000BB1D5 /* HYEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYEmptyView.m; sourceTree = "<group>"; };
+		D292523721AD362B00DF29C7 /* UIColor+HYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HYCategory.m"; sourceTree = "<group>"; };
+		D292523821AD362B00DF29C7 /* UIView+HYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HYCategory.m"; sourceTree = "<group>"; };
+		D292523921AD362B00DF29C7 /* UIView+HYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HYCategory.h"; sourceTree = "<group>"; };
+		D292523A21AD362B00DF29C7 /* UIColor+HYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HYCategory.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,8 @@
 		D216FE4520493098000BB1D5 /* HYEmptyView */ = {
 			isa = PBXGroup;
 			children = (
+				D292523621AD362B00DF29C7 /* HYTool */,
+				D216FE5C2049333C000BB1D5 /* HYEmptyView */,
 				D216FE4620493098000BB1D5 /* AppDelegate.h */,
 				D216FE4720493098000BB1D5 /* AppDelegate.m */,
 				D216FE4920493098000BB1D5 /* ViewController.h */,
@@ -69,6 +83,28 @@
 				D216FE5520493098000BB1D5 /* main.m */,
 			);
 			path = HYEmptyView;
+			sourceTree = "<group>";
+		};
+		D216FE5C2049333C000BB1D5 /* HYEmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				D216FE5D2049339A000BB1D5 /* UIScrollView+HYEmpty.h */,
+				D216FE5E2049339A000BB1D5 /* UIScrollView+HYEmpty.m */,
+				D216FE60204948E4000BB1D5 /* HYEmptyView.h */,
+				D216FE61204948E4000BB1D5 /* HYEmptyView.m */,
+			);
+			path = HYEmptyView;
+			sourceTree = "<group>";
+		};
+		D292523621AD362B00DF29C7 /* HYTool */ = {
+			isa = PBXGroup;
+			children = (
+				D292523721AD362B00DF29C7 /* UIColor+HYCategory.m */,
+				D292523821AD362B00DF29C7 /* UIView+HYCategory.m */,
+				D292523921AD362B00DF29C7 /* UIView+HYCategory.h */,
+				D292523A21AD362B00DF29C7 /* UIColor+HYCategory.h */,
+			);
+			path = HYTool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,8 +178,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D292523B21AD362B00DF29C7 /* UIColor+HYCategory.m in Sources */,
+				D216FE5F2049339A000BB1D5 /* UIScrollView+HYEmpty.m in Sources */,
+				D216FE62204948E4000BB1D5 /* HYEmptyView.m in Sources */,
 				D216FE4B20493098000BB1D5 /* ViewController.m in Sources */,
 				D216FE5620493098000BB1D5 /* main.m in Sources */,
+				D292523C21AD362B00DF29C7 /* UIView+HYCategory.m in Sources */,
 				D216FE4820493098000BB1D5 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +319,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 53VRM8P8RX;
 				INFOPLIST_FILE = HYEmptyView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TRIO.HYEmptyView;
@@ -292,6 +333,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 53VRM8P8RX;
 				INFOPLIST_FILE = HYEmptyView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = TRIO.HYEmptyView;
