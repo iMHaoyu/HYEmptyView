@@ -33,6 +33,7 @@
 static char const *const kHYEmptyKey             = "emptyDataSetView";
 static char const *const kHYEmptyDataSetSource   = "emptyDataSetSourceAndDelegate";
 static char const *const kHYEmptySeparatorStyle  = "emptySeparatorStyle";
+static char const *const kHYEmptyScrollEnable    = "emptyScrollEnable";
 #pragma mark - ⬅️⬅️⬅️⬅️ set & get ➡️➡️➡️➡️
 #pragma mark -
 - (void)setEmptyView:(HYEmptyView *)emptyView {
@@ -157,9 +158,10 @@ static char const *const kHYEmptySeparatorStyle  = "emptySeparatorStyle";
 }
 
 - (void)showEmptyView {
-    //此处可扩展
-    //可以设置许多自己需要的功能（比如自动显示和隐藏）
-    //......................//
+    
+    //获取scrollEnabled 属性
+    objc_setAssociatedObject(self, kHYEmptyScrollEnable, @(self.scrollEnabled),OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
     HYEmptyView *view  = self.emptyView;
     self.scrollEnabled = NO;
     if (!view.superview) {
@@ -213,15 +215,14 @@ static char const *const kHYEmptySeparatorStyle  = "emptySeparatorStyle";
     
 }
 - (void)hiddenEmptyView {
-    //此处可扩展
-    //可以设置许多自己需要的功能（比如自动显示和隐藏）
-    //......................//
+
     if (self.emptyView) {
         [self.emptyView prepareForReuse];
         [self.emptyView removeFromSuperview];
         [self setEmptyView:nil];
     }
-    self.scrollEnabled = YES;
+    id scrollEnabled = objc_getAssociatedObject(self, kHYEmptyScrollEnable);
+    self.scrollEnabled = [scrollEnabled boolValue];
 }
 #pragma mark - ⬅️⬅️⬅️⬅️ Data Source Getters ➡️➡️➡️➡️
 #pragma mark -
