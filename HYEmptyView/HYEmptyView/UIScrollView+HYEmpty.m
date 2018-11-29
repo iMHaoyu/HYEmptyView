@@ -137,6 +137,8 @@ static char const *const kHYEmptyScrollEnable    = "emptyScrollEnable";
     if (!self.emptyView && ![self hy_customView]) {
         return;
     }
+    // 获取scrollEnabled 属性
+    objc_setAssociatedObject(self, kHYEmptyScrollEnable, @(self.scrollEnabled),OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     if ([self totalDataCount] == 0) {
         if ([self isKindOfClass:[UITableView class]]) {
@@ -158,9 +160,6 @@ static char const *const kHYEmptyScrollEnable    = "emptyScrollEnable";
 }
 
 - (void)showEmptyView {
-    
-    //获取scrollEnabled 属性
-    objc_setAssociatedObject(self, kHYEmptyScrollEnable, @(self.scrollEnabled),OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     HYEmptyView *view  = self.emptyView;
     self.scrollEnabled = NO;
@@ -206,7 +205,9 @@ static char const *const kHYEmptyScrollEnable    = "emptyScrollEnable";
         //配置按钮图片
         //...
         
-        [view.superview layoutSubviews];
+        [UIView performWithoutAnimation:^{
+            [view layoutIfNeeded];
+        }];
         //让 emptyBGView 始终保持在最上层
         [self bringSubviewToFront:view];
     }
@@ -221,6 +222,7 @@ static char const *const kHYEmptyScrollEnable    = "emptyScrollEnable";
         [self.emptyView removeFromSuperview];
         [self setEmptyView:nil];
     }
+    //设置scrollview 为原scrollEnabled;
     id scrollEnabled = objc_getAssociatedObject(self, kHYEmptyScrollEnable);
     self.scrollEnabled = [scrollEnabled boolValue];
 }
