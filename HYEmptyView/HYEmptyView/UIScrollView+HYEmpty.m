@@ -137,8 +137,6 @@ static char const *const kHYEmptyScrollEnable    = "emptyScrollEnable";
     if (!self.emptyView && ![self hy_customView]) {
         return;
     }
-    // 获取scrollEnabled 属性
-    objc_setAssociatedObject(self, kHYEmptyScrollEnable, @(self.scrollEnabled),OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     if ([self totalDataCount] == 0 && ([self hy_customView] || [self hy_image] || [self hy_titleLabelString] || [self hy_detailLabelString] || [self hy_buttonTitleForState:normal])) {
         if ([self isKindOfClass:[UITableView class]]) {
@@ -162,7 +160,6 @@ static char const *const kHYEmptyScrollEnable    = "emptyScrollEnable";
 - (void)showEmptyView {
     
     HYEmptyView *view  = self.emptyView;
-    self.scrollEnabled = NO;
     if (!view.superview) {
         // 如果出现HeaderView和/或FooterView，以及sectionHeaders或任何其他内容，则将视图一直发送到后面
         if (([self isKindOfClass:[UITableView class]] || [self isKindOfClass:[UICollectionView class]]) && self.subviews.count > 1) {
@@ -222,9 +219,6 @@ static char const *const kHYEmptyScrollEnable    = "emptyScrollEnable";
         [self.emptyView removeFromSuperview];
         [self setEmptyView:nil];
     }
-    //设置scrollview 为原scrollEnabled;
-    id scrollEnabled = objc_getAssociatedObject(self, kHYEmptyScrollEnable);
-    self.scrollEnabled = [scrollEnabled boolValue];
 }
 #pragma mark - ⬅️⬅️⬅️⬅️ Data Source Getters ➡️➡️➡️➡️
 #pragma mark -
