@@ -140,7 +140,7 @@ static char const *const kHYEmptyScrollEnable    = "emptyScrollEnable";
     // 获取scrollEnabled 属性
     objc_setAssociatedObject(self, kHYEmptyScrollEnable, @(self.scrollEnabled),OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    if ([self totalDataCount] == 0) {
+    if ([self totalDataCount] == 0 && ([self hy_customView] || [self hy_image] || [self hy_titleLabelString] || [self hy_detailLabelString] || [self hy_buttonTitleForState:normal])) {
         if ([self isKindOfClass:[UITableView class]]) {
             UITableView *tempSelf = (UITableView *)self;
             objc_setAssociatedObject(self, kHYEmptySeparatorStyle, @(tempSelf.separatorStyle),OBJC_ASSOCIATION_RETAIN_NONATOMIC);
